@@ -1,0 +1,83 @@
+import java.util.Scanner;
+
+public class TemperatureConverter {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Temperature Converter");
+        System.out.print("Enter the temperature value: ");
+        double temperature = scanner.nextDouble();
+        System.out.print("Enter the temperature scale (Fahrenheit, Celsius, Kelvin, Rankine): ");
+        String scale = scanner.next().toLowerCase();
+
+        System.out.println("Convert to:");
+        System.out.println("1. Fahrenheit");
+        System.out.println("2. Celsius");
+        System.out.println("3. Kelvin");
+        System.out.println("4. Rankine");
+        System.out.print("Select an option: ");
+        int option = scanner.nextInt();
+
+        double convertedTemperature = 0;
+        switch (scale) {
+            case "fahrenheit":
+                convertedTemperature = convertFromFahrenheit(temperature, option);
+                break;
+            case "celsius":
+                convertedTemperature = convertFromCelsius(temperature, option);
+                break;
+            case "kelvin":
+                convertedTemperature = convertFromKelvin(temperature, option);
+                break;
+            case "rankine":
+                convertedTemperature = convertFromRankine(temperature, option);
+                break;
+            default:
+                System.out.println("Invalid temperature scale entered.");
+                return;
+        }
+
+        System.out.println("Converted Temperature: " + convertedTemperature);
+        scanner.close();
+    }
+
+    public static double convertFromFahrenheit(double fahrenheit, int option) {
+        switch (option) {
+            case 1: return fahrenheit;
+            case 2: return (fahrenheit - 32) * 5 / 9;
+            case 3: return (fahrenheit - 32) * 5 / 9 + 273.15;
+            case 4: return fahrenheit + 459.67;
+            default: return Double.NaN;
+        }
+    }
+
+    public static double convertFromCelsius(double celsius, int option) {
+        switch (option) {
+            case 1: return (celsius * 9 / 5) + 32;
+            case 2: return celsius;
+            case 3: return celsius + 273.15;
+            case 4: return (celsius + 273.15) * 9 / 5;
+            default: return Double.NaN;
+        }
+    }
+
+    public static double convertFromKelvin(double kelvin, int option) {
+        switch (option) {
+            case 1: return (kelvin - 273.15) * 9 / 5 + 32;
+            case 2: return kelvin - 273.15;
+            case 3: return kelvin;
+            case 4: return kelvin * 9 / 5;
+            default: return Double.NaN;
+        }
+    }
+
+    public static double convertFromRankine(double rankine, int option) {
+        switch (option) {
+            case 1: return rankine - 459.67;
+            case 2: return (rankine - 491.67) * 5 / 9;
+            case 3: return rankine * 5 / 9;
+            case 4: return rankine;
+            default: return Double.NaN;
+        }
+    }
+}
