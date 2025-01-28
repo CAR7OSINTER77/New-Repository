@@ -1,0 +1,128 @@
+import java.util.Scanner;
+
+public class TemperatureConverter {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Temperature Converter");
+        System.out.println("1. Fahrenheit to Celsius");
+        System.out.println("2. Fahrenheit to Kelvin");
+        System.out.println("3. Fahrenheit to Rankine");
+        System.out.println("4. Celsius to Fahrenheit");
+        System.out.println("5. Celsius to Kelvin");
+        System.out.println("6. Celsius to Rankine");
+        System.out.println("7. Kelvin to Fahrenheit");
+        System.out.println("8. Kelvin to Celsius");
+        System.out.println("9. Kelvin to Rankine");
+        System.out.println("10. Rankine to Fahrenheit");
+        System.out.println("11. Rankine to Celsius");
+        System.out.println("12. Rankine to Kelvin");
+        System.out.print("Select an option: ");
+        int option = scanner.nextInt();
+        System.out.print("Enter the temperature to convert: ");
+        double temperature = scanner.nextDouble();
+        double convertedTemperature = 0;
+
+        switch (option) {
+            case 1:
+                convertedTemperature = fahrenheitToCelsius(temperature);
+                System.out.println("Fahrenheit to Celsius: " + convertedTemperature);
+                break;
+            case 2:
+                convertedTemperature = fahrenheitToKelvin(temperature);
+                System.out.println("Fahrenheit to Kelvin: " + convertedTemperature);
+                break;
+            case 3:
+                convertedTemperature = fahrenheitToRankine(temperature);
+                System.out.println("Fahrenheit to Rankine: " + convertedTemperature);
+                break;
+            case 4:
+                convertedTemperature = celsiusToFahrenheit(temperature);
+                System.out.println("Celsius to Fahrenheit: " + convertedTemperature);
+                break;
+            case 5:
+                convertedTemperature = celsiusToKelvin(temperature);
+                System.out.println("Celsius to Kelvin: " + convertedTemperature);
+                break;
+            case 6:
+                convertedTemperature = celsiusToRankine(temperature);
+                System.out.println("Celsius to Rankine: " + convertedTemperature);
+                break;
+            case 7:
+                convertedTemperature = kelvinToFahrenheit(temperature);
+                System.out.println("Kelvin to Fahrenheit: " + convertedTemperature);
+                break;
+            case 8:
+                convertedTemperature = kelvinToCelsius(temperature);
+                System.out.println("Kelvin to Celsius: " + convertedTemperature);
+                break;
+            case 9:
+                convertedTemperature = kelvinToRankine(temperature);
+                System.out.println("Kelvin to Rankine: " + convertedTemperature);
+                break;
+            case 10:
+                convertedTemperature = rankineToFahrenheit(temperature);
+                System.out.println("Rankine to Fahrenheit: " + convertedTemperature);
+                break;
+            case 11:
+                convertedTemperature = rankineToCelsius(temperature);
+                System.out.println("Rankine to Celsius: " + convertedTemperature);
+                break;
+            case 12:
+                convertedTemperature = rankineToKelvin(temperature);
+                System.out.println("Rankine to Kelvin: " + convertedTemperature);
+                break;
+            default:
+                System.out.println("Invalid option selected.");
+        }
+        scanner.close();
+    }
+
+    public static double fahrenheitToCelsius(double fahrenheit) {
+        return (fahrenheit - 32) * 5 / 9;
+    }
+
+    public static double fahrenheitToKelvin(double fahrenheit) {
+        return (fahrenheit - 32) * 5 / 9 + 273.15;
+    }
+
+    public static double fahrenheitToRankine(double fahrenheit) {
+        return fahrenheit + 459.67;
+    }
+
+    public static double celsiusToFahrenheit(double celsius) {
+        return (celsius * 9 / 5) + 32;
+    }
+
+    public static double celsiusToKelvin(double celsius) {
+        return celsius + 273.15;
+    }
+
+    public static double celsiusToRankine(double celsius) {
+        return (celsius + 273.15) * 9 / 5;
+    }
+
+    public static double kelvinToFahrenheit(double kelvin) {
+        return (kelvin - 273.15) * 9 / 5 + 32;
+    }
+
+    public static double kelvinToCelsius(double kelvin) {
+        return kelvin - 273.15;
+    }
+
+    public static double kelvinToRankine(double kelvin) {
+        return kelvin * 9 / 5;
+    }
+
+    public static double rankineToFahrenheit(double rankine) {
+        return rankine - 459.67;
+    }
+
+    public static double rankineToCelsius(double rankine) {
+        return (rankine - 491.67) * 5 / 9;
+    }
+
+    public static double rankineToKelvin(double rankine) {
+        return rankine * 5 / 9;
+    }
+}
